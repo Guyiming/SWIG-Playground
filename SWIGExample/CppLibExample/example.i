@@ -4,6 +4,7 @@
 %module SwigGenModule
 
 %{
+#include "Bar.h"
 #include "Foo.h"
 %}
 
@@ -50,6 +51,6 @@
 //%array_class(PointAsC,PointAsCArray);
 
 
-
+%include "Bar.h"
 %include "Foo.h"
 

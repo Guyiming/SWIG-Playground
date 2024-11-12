@@ -361,6 +361,7 @@ template <typename T> T SwigValueInit() {
 #endif
 
 
+#include "Bar.h"
 #include "Foo.h"
 
 
@@ -471,15 +472,75 @@ static void * SWIG_csharp_wstring_callback(const wchar_t *s) {
 extern "C" {
 #endif
 
-SWIGEXPORT int SWIGSTDCALL CSharp_CSharpCall_Foo_GetValue(void * jarg1) {
+SWIGEXPORT void SWIGSTDCALL CSharp_CSharpCall_Bar_a_set(void * jarg1, int jarg2) {
+  Bar *arg1 = (Bar *) 0 ;
+  int arg2 ;
+  
+  arg1 = (Bar *)jarg1; 
+  arg2 = (int)jarg2; 
+  if (arg1) (arg1)->a = arg2;
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_CSharpCall_Bar_a_get(void * jarg1) {
   int jresult ;
-  Foo *arg1 = (Foo *) 0 ;
+  Bar *arg1 = (Bar *) 0 ;
   int result;
   
-  arg1 = (Foo *)jarg1; 
-  result = (int)(arg1)->GetValue();
+  arg1 = (Bar *)jarg1; 
+  result = (int) ((arg1)->a);
   jresult = result; 
   return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_CSharpCall_new_Bar() {
+  void * jresult ;
+  Bar *result = 0 ;
+  
+  result = (Bar *)new Bar();
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_CSharpCall_delete_Bar(void * jarg1) {
+  Bar *arg1 = (Bar *) 0 ;
+  
+  arg1 = (Bar *)jarg1; 
+  delete arg1;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_CSharpCall_Foo_SetValue(void * jarg1, void * jarg2, void * jarg3, void * jarg4, void * jarg5, void * jarg6) {
+  Foo *arg1 = (Foo *) 0 ;
+  Bar arg2 ;
+  Bar *arg3 = (Bar *) 0 ;
+  Bar *arg4 = (Bar *) 0 ;
+  Bar *arg5 = 0 ;
+  Bar *arg6 = 0 ;
+  Bar *argp2 ;
+  
+  arg1 = (Foo *)jarg1; 
+  argp2 = (Bar *)jarg2; 
+  if (!argp2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null Bar", 0);
+    return ;
+  }
+  arg2 = *argp2; 
+  arg3 = (Bar *)jarg3; 
+  arg4 = (Bar *)jarg4; 
+  arg5 = (Bar *)jarg5;
+  if (!arg5) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Bar & is null", 0);
+    return ;
+  } 
+  arg6 = (Bar *)jarg6;
+  if (!arg6) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Bar & is null", 0);
+    return ;
+  } 
+  (arg1)->SetValue(arg2,arg3,arg4,*arg5,*arg6);
 }
 
 

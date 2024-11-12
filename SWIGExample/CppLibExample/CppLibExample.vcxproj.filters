@@ -18,6 +18,9 @@
     <ClInclude Include="Foo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Bar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="example_wrap.cxx">
