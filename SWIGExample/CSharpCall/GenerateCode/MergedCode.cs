@@ -57,6 +57,11 @@ public class Bar : global::System.IDisposable {
     }
   }
 
+	/// <summary>
+	/// 获取当前对象的指针
+	/// </summary>
+	public System.IntPtr Ptr => getCPtr(this).Handle;
+
   public int a {
     set {
       SwigGenModulePINVOKE.Bar_a_set(swigCPtr, value);
@@ -121,6 +126,11 @@ public class Foo : global::System.IDisposable {
       }
     }
   }
+
+	/// <summary>
+	/// 获取当前对象的指针
+	/// </summary>
+	public System.IntPtr Ptr => getCPtr(this).Handle;
 
   public void SetValue(Bar bObj, Bar barPtr, Bar barPtrMalloc, Bar barRef, Bar barRefMalloc) {
     SwigGenModulePINVOKE.Foo_SetValue(swigCPtr, Bar.getCPtr(bObj), Bar.getCPtr(barPtr), Bar.getCPtr(barPtrMalloc), Bar.getCPtr(barRef), Bar.getCPtr(barRefMalloc));

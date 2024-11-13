@@ -29,6 +29,13 @@
 %include "carrays.i"
 %include <arrays_csharp.i>
 
+//添加额外代码到C#包装类
+%typemap(cscode) SWIGTYPE %{
+	/// <summary>
+	/// 获取当前对象的指针
+	/// </summary>
+	public System.IntPtr Ptr => getCPtr(this).Handle;
+%}
 
 //%array_class(Foo,FooArray);
 
