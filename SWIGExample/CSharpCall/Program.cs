@@ -3,10 +3,22 @@
 using CSharpCall;
 
 
-PlayPointerOrReference();
+//PlayPointerOrReference();
+PlayPointerAndRef();
 
 Console.Read();
 
+
+
+static void PlayPointerAndRef()
+{
+    Bar b = new Bar();
+    b.a = 1;
+    IntPtr bPtr = b.Ptr;
+    Foo foo = new Foo();
+    foo.SetValue2(ref b);
+    Console.WriteLine(b.a.ToString().PadRight(10) + $"Ptr diff:{bPtr} vs {b.Ptr}");
+}
 
 static void PlayPointerOrReference()
 {

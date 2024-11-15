@@ -137,6 +137,16 @@ public class Foo : global::System.IDisposable {
     if (SwigGenModulePINVOKE.SWIGPendingException.Pending) throw SwigGenModulePINVOKE.SWIGPendingException.Retrieve();
   }
 
+  public void SetValue2(ref Bar b) {
+System.IntPtr temp_b = Bar.getCPtr(b).Handle; System.IntPtr back_b = temp_b;
+    try {
+      SwigGenModulePINVOKE.Foo_SetValue2(swigCPtr, ref temp_b);
+      if (SwigGenModulePINVOKE.SWIGPendingException.Pending) throw SwigGenModulePINVOKE.SWIGPendingException.Retrieve();
+    } finally {
+if(temp_b != back_b) b = new Bar(temp_b,true);
+    }
+  }
+
   public Foo() : this(SwigGenModulePINVOKE.new_Foo(), true) {
   }
 
@@ -413,6 +423,9 @@ class SwigGenModulePINVOKE {
 
   [global::System.Runtime.InteropServices.DllImport("CppLibExample", EntryPoint="CSharp_CSharpCall_Foo_SetValue")]
   public static extern void Foo_SetValue(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3, global::System.Runtime.InteropServices.HandleRef jarg4, global::System.Runtime.InteropServices.HandleRef jarg5, global::System.Runtime.InteropServices.HandleRef jarg6);
+
+  [global::System.Runtime.InteropServices.DllImport("CppLibExample", EntryPoint="CSharp_CSharpCall_Foo_SetValue2")]
+  public static extern void Foo_SetValue2(global::System.Runtime.InteropServices.HandleRef jarg1, ref System.IntPtr jarg2);
 
   [global::System.Runtime.InteropServices.DllImport("CppLibExample", EntryPoint="CSharp_CSharpCall_new_Foo")]
   public static extern global::System.IntPtr new_Foo();

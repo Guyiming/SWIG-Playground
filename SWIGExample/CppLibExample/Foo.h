@@ -25,5 +25,13 @@ public:
 		temp_ref->a = 100;
 		barRefMalloc = (*temp_ref);
 	}
+
+	void SetValue2(Bar*& b)
+	{
+		//指针的引用
+		Bar* temp_ref = new Bar();
+		temp_ref->a = 100;
+		b = temp_ref;
+	}
 };
 

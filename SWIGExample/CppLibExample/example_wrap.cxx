@@ -544,6 +544,20 @@ SWIGEXPORT void SWIGSTDCALL CSharp_CSharpCall_Foo_SetValue(void * jarg1, void * 
 }
 
 
+SWIGEXPORT void SWIGSTDCALL CSharp_CSharpCall_Foo_SetValue2(void * jarg1, void** jarg2) {
+  Foo *arg1 = (Foo *) 0 ;
+  Bar **arg2 = 0 ;
+  
+  arg1 = (Foo *)jarg1; 
+  arg2 = (Bar **)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Bar *& is null", 0);
+    return ;
+  } 
+  (arg1)->SetValue2(*arg2);
+}
+
+
 SWIGEXPORT void * SWIGSTDCALL CSharp_CSharpCall_new_Foo() {
   void * jresult ;
   Foo *result = 0 ;

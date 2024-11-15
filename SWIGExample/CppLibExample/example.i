@@ -41,10 +41,10 @@
 
 //%template(TestVector) std::vector<int>;
 
-//%typemap(ctype) PointAsC*& "void**";
-//%typemap(imtype,out="IntPtr") PointAsC*& "ref System.IntPtr";
-//%typemap(csin,pre="System.IntPtr temp_$csinput=PointAsC.getCPtr($csinput).Handle; System.IntPtr back_$csinput=temp_$csinput;",post="if(temp_$csinput!=back_$csinput) $csinput=new PointAsC(temp_$csinput,true);") PointAsC*& "ref temp_$csinput";
-//%typemap(cstype) PointAsC*& "ref PointAsC";
+%typemap(ctype) Bar*& "void**";
+%typemap(imtype,out="IntPtr") Bar*& "ref System.IntPtr";
+%typemap(csin,pre="System.IntPtr temp_$csinput = Bar.getCPtr($csinput).Handle; System.IntPtr back_$csinput = temp_$csinput;",post="if(temp_$csinput != back_$csinput) $csinput = new Bar(temp_$csinput,true);") Bar*& "ref temp_$csinput";
+%typemap(cstype) Bar*& "ref Bar";
 
 //
 //%apply int* INOUT {int *abc};
