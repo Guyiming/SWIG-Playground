@@ -95,7 +95,8 @@ static void PlayPointerAndRef()
 ```
 在输出结果中我们可以看到：
 ![ptr_ref](https://github.com/Guyiming/SWIG-Playground/blob/main/Pics/ptr_and_ref.png)
-拿到了修改后的值，最重要的是指针已经改变，变量`b`指向一个新地址。
+
+拿到了修改后的值，最重要的是对象指向内存的地址已经改变，变量`b`指向一个新地址。
 
 
 
