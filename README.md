@@ -68,6 +68,34 @@ static void PlayPointerOrReference()
 可以看到结果里只有第一和第三个没有生效：
 ![ptr_ref](https://github.com/Guyiming/SWIG-Playground/blob/main/Pics/ptr_or_ref.png)
 
+- 从第二个结果我们可以看出，c++的指针传值方式等价于c#中普通的传值方式（当然对于类来说，c#默认就是引用传递）
+- 从第五个结构我们可以看出，c++的&引用传值等价于c#中的`ref`。
+
+在c++中还有一种常见的参数类型为`*&`:
+```cpp
+	void SetValue2(Bar*& b)
+	{
+		//指针的引用
+		Bar* temp_ref = new Bar();
+		temp_ref->a = 100;
+		b = temp_ref;
+	}
+```
+对于指针的引用，在c++中有可能会new一个新的变量赋值上去。对新变量的任何修改我们希望能反映到入参上，所以需要我们对`Bar*&`类型做些处理（见example.i），以符合c#类似的语义，即`ref`。在c#中我们可以这样调用：
+```csharp
+static void PlayPointerAndRef()
+{
+    Bar b = new Bar();
+    b.a = 1;
+    IntPtr bPtr = b.Ptr;
+    Foo foo = new Foo();
+    foo.SetValue2(ref b);
+    Console.WriteLine(b.a.ToString().PadRight(10) + $"Ptr diff:{bPtr} vs {b.Ptr}");
+}
+```
+在输出结果中我们可以看到：
+![ptr_ref](https://github.com/Guyiming/SWIG-Playground/blob/main/Pics/ptr_and_ref.png)
+拿到了修改后的值，最重要的是指针已经改变，变量`b`指向一个新地址。
 
 
 
