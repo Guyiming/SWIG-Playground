@@ -66,4 +66,17 @@ static void PlayPointerOrReference()
 }
 ```
 可以看到结果里只有第一和第三个没有生效：
+![ptr_ref](https://github.com/Guyiming/SWIG-Playground/blob/main/Pics/ptr_or_ref.png)
+
+
+
+
+
+
+
+
+
+
+
+
 
