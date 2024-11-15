@@ -7,17 +7,20 @@ private:
 public:
 	void SetValue(Bar bObj, Bar* barPtr, Bar* barPtrMalloc, Bar& barRef, Bar& barRefMalloc)
 	{
+		//因为是值传递，所以修改a的值并【不会】影响输入参数
 		bObj.a = 100;
 
-
+		//指针属于引用传递，修改a的值【会】影响输入参数
 		barPtr->a = 100;
+
+		//指针属于引用传递，但指针被指向了一个新地址，此时修改a的值【不会】影响输入参数
 		barPtrMalloc = new Bar();
 		barPtrMalloc->a = 100;
 
+		//引用传递，修改a的值【会】影响输入参数
 		barRef.a = 100;
 
-
-
+		//引用传递，赋值操作【会】影响输入参数
 		Bar* temp_ref = new Bar();
 		temp_ref->a = 100;
 		barRefMalloc = (*temp_ref);
