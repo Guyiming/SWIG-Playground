@@ -33,5 +33,18 @@ public:
 		temp_ref->a = 100;
 		b = temp_ref;
 	}
+
+	int SimpleForBenchmark(int a, int b)
+	{
+		return a + b;
+	}
+
+	void ComplexForBenchmark(Bar bar1, Bar* barPtr, Bar& barRef)
+	{
+		bar1.a = 100;
+		barPtr->a = 100;
+		barRef.a = 100;
+	}
+
 };
 

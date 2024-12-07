@@ -1,15 +1,41 @@
-﻿
-
+﻿using BenchmarkDotNet.Running;
 using CSharpCall;
+using System.Diagnostics;
 
 
 //PlayPointerOrReference();
-PlayPointerAndRef();
+//PlayPointerAndRef();
+
+
+
 
 Console.Read();
 
 
+//SWIG与CLR性能对比
+static void BenchmarkSWIG_CLR()
+{
+    //https://stackoverflow.com/questions/1433334/performance-differences-between-p-invoke-and-c-wrappers
+    //实际情况也是CLR比SWIG快了20多倍
+    BenchmarkPlay mark = new BenchmarkPlay();
+    Stopwatch sw = Stopwatch.StartNew();
+    for (int i = 0; i < 999999; i++)
+    {
+        mark.TestSimpleCLR();
+    }
+    sw.Stop();
+    Console.WriteLine($"CLR:{sw.ElapsedMilliseconds}ms");
 
+    sw.Restart();
+    for (int i = 0; i < 999999; i++)
+    {
+        mark.TestSimpleSWIG();
+    }
+    sw.Stop();
+    Console.WriteLine($"SWIG:{sw.ElapsedMilliseconds}ms");
+}
+
+//测试指针的引用
 static void PlayPointerAndRef()
 {
     Bar b = new Bar();
@@ -20,6 +46,8 @@ static void PlayPointerAndRef()
     Console.WriteLine(b.a.ToString().PadRight(10) + $"Ptr diff:{bPtr} vs {b.Ptr}");
 }
 
+
+//测试指针、引用、引用
 static void PlayPointerOrReference()
 {
     Bar bObj = new Bar();

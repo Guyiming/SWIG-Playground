@@ -147,6 +147,16 @@ if(temp_b != back_b) b = new Bar(temp_b,true);
     }
   }
 
+  public int SimpleForBenchmark(int a, int b) {
+    int ret = SwigGenModulePINVOKE.Foo_SimpleForBenchmark(swigCPtr, a, b);
+    return ret;
+  }
+
+  public void ComplexForBenchmark(Bar bar1, Bar barPtr, Bar barRef) {
+    SwigGenModulePINVOKE.Foo_ComplexForBenchmark(swigCPtr, Bar.getCPtr(bar1), Bar.getCPtr(barPtr), Bar.getCPtr(barRef));
+    if (SwigGenModulePINVOKE.SWIGPendingException.Pending) throw SwigGenModulePINVOKE.SWIGPendingException.Retrieve();
+  }
+
   public Foo() : this(SwigGenModulePINVOKE.new_Foo(), true) {
   }
 
@@ -426,6 +436,12 @@ class SwigGenModulePINVOKE {
 
   [global::System.Runtime.InteropServices.DllImport("CppLibExample", EntryPoint="CSharp_CSharpCall_Foo_SetValue2")]
   public static extern void Foo_SetValue2(global::System.Runtime.InteropServices.HandleRef jarg1, ref System.IntPtr jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("CppLibExample", EntryPoint="CSharp_CSharpCall_Foo_SimpleForBenchmark")]
+  public static extern int Foo_SimpleForBenchmark(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2, int jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("CppLibExample", EntryPoint="CSharp_CSharpCall_Foo_ComplexForBenchmark")]
+  public static extern void Foo_ComplexForBenchmark(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3, global::System.Runtime.InteropServices.HandleRef jarg4);
 
   [global::System.Runtime.InteropServices.DllImport("CppLibExample", EntryPoint="CSharp_CSharpCall_new_Foo")]
   public static extern global::System.IntPtr new_Foo();

@@ -558,6 +558,46 @@ SWIGEXPORT void SWIGSTDCALL CSharp_CSharpCall_Foo_SetValue2(void * jarg1, void**
 }
 
 
+SWIGEXPORT int SWIGSTDCALL CSharp_CSharpCall_Foo_SimpleForBenchmark(void * jarg1, int jarg2, int jarg3) {
+  int jresult ;
+  Foo *arg1 = (Foo *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  int result;
+  
+  arg1 = (Foo *)jarg1; 
+  arg2 = (int)jarg2; 
+  arg3 = (int)jarg3; 
+  result = (int)(arg1)->SimpleForBenchmark(arg2,arg3);
+  jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_CSharpCall_Foo_ComplexForBenchmark(void * jarg1, void * jarg2, void * jarg3, void * jarg4) {
+  Foo *arg1 = (Foo *) 0 ;
+  Bar arg2 ;
+  Bar *arg3 = (Bar *) 0 ;
+  Bar *arg4 = 0 ;
+  Bar *argp2 ;
+  
+  arg1 = (Foo *)jarg1; 
+  argp2 = (Bar *)jarg2; 
+  if (!argp2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null Bar", 0);
+    return ;
+  }
+  arg2 = *argp2; 
+  arg3 = (Bar *)jarg3; 
+  arg4 = (Bar *)jarg4;
+  if (!arg4) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Bar & is null", 0);
+    return ;
+  } 
+  (arg1)->ComplexForBenchmark(arg2,arg3,*arg4);
+}
+
+
 SWIGEXPORT void * SWIGSTDCALL CSharp_CSharpCall_new_Foo() {
   void * jresult ;
   Foo *result = 0 ;
