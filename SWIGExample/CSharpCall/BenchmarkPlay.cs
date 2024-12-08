@@ -1,10 +1,11 @@
 ﻿using BenchmarkDotNet.Attributes;
+using Sample;
 
 namespace CSharpCall
 {
     public class BenchmarkPlay
     {
-        FooCLR _fooCLR = new FooCLR();
+        Sample.Foo _fooCLR = new ();
         Foo _foo = new Foo();
         public BenchmarkPlay()
         {
@@ -20,7 +21,6 @@ namespace CSharpCall
             {
                 _fooCLR.SimpleForBenchmark(i, i + 1);
             }
-
         }
 
         [Benchmark]

@@ -5,7 +5,7 @@ using System.Diagnostics;
 
 //PlayPointerOrReference();
 //PlayPointerAndRef();
-
+BenchmarkSWIG_CLR();
 
 
 
