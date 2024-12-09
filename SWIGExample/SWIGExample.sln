@@ -9,7 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharpCall", "CSharpCall\CS
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CppInteropCLR", "CppInteropCLR\CppInteropCLR.vcxproj", "{13D76813-A26D-4290-B437-3DF1AAA5B9A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CppSharpGenerater", "CppSharpConsole\CppSharpGenerater.csproj", "{2177E5D8-EFD4-4753-88FD-A67C3A7D5549}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CppSharpGenerater", "CppSharpConsole\CppSharpGenerater.csproj", "{2177E5D8-EFD4-4753-88FD-A67C3A7D5549}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CLR", "CLR", "{D59B96AD-E903-49AE-873E-5342D99D198D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PInvoke", "PInvoke", "{7B534687-0508-4D27-A5C2-F0FDC8D81A18}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -72,6 +76,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3C471FE2-917E-4151-818B-9F0A23BAEE8A} = {7B534687-0508-4D27-A5C2-F0FDC8D81A18}
+		{13D76813-A26D-4290-B437-3DF1AAA5B9A5} = {D59B96AD-E903-49AE-873E-5342D99D198D}
+		{2177E5D8-EFD4-4753-88FD-A67C3A7D5549} = {D59B96AD-E903-49AE-873E-5342D99D198D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CC46DC82-19F5-4F4D-9368-74E27D27061E}
