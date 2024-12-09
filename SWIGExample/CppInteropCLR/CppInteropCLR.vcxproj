@@ -129,7 +129,6 @@
   <ItemGroup>
     <ClCompile Include="Bar.cpp" />
     <ClCompile Include="Foo.cpp" />
-    <ClCompile Include="FooCLR.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CppLibExample\CppLibExample.vcxproj">

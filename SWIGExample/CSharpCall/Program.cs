@@ -5,9 +5,10 @@ using System.Diagnostics;
 
 //PlayPointerOrReference();
 //PlayPointerAndRef();
-BenchmarkSWIG_CLR();
+//BenchmarkSWIG_CLR();
 
-
+BenchmarkRunner.Run<BenchmarkPlay>();
+//BenchmarkSwitcher.FromAssembly(typeof(Program).Assembly).Run(Environment.GetCommandLineArgs());
 
 Console.Read();
 
