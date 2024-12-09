@@ -1,7 +1,4 @@
-﻿
-using BenchmarkDotNet.Attributes;
-
-namespace CSharpCall
+﻿namespace CSharpCall
 {
     public class BenchmarkPlay
     {
@@ -14,7 +11,7 @@ namespace CSharpCall
 
         public void TestSimpleCLR()
         {
-            int result;
+            int result=0;
             for (int i = 0; i < 50; i++)
             {
                 result = _fooCLR.SimpleForBenchmark(i, i + 1);
@@ -23,7 +20,7 @@ namespace CSharpCall
 
         public void TestSimpleSWIG()
         {
-            int result;
+            int result=0;
             for (int i = 0; i < 50; i++)
             {
                 result = _foo.SimpleForBenchmark(i, i + 1);
@@ -31,15 +28,21 @@ namespace CSharpCall
         }
 
 
-
         public void TestComplexCLR()
         {
-            _fooCLR.ComplexForBenchmark(new Sample.Bar(), new Sample.Bar(), new Sample.Bar());
+            for(int i=0;i< 50; i++)
+            {
+                _fooCLR.ComplexForBenchmark(new Sample.Bar(), new Sample.Bar(), new Sample.Bar());
+            }
+            
         }
 
         public void TestComplexSWIG()
         {
-            _foo.ComplexForBenchmark(new Bar(), new Bar(), new Bar());
+            for (int i = 0; i < 50; i++)
+            {
+                _foo.ComplexForBenchmark(new Bar(), new Bar(), new Bar());
+            }
         }
     }
 }

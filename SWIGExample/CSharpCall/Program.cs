@@ -1,14 +1,13 @@
-﻿using BenchmarkDotNet.Running;
-using CSharpCall;
+﻿using CSharpCall;
 using System.Diagnostics;
 
 
 //PlayPointerOrReference();
 //PlayPointerAndRef();
-//BenchmarkSWIG_CLR();
 
-BenchmarkRunner.Run<BenchmarkPlay>();
-//BenchmarkSwitcher.FromAssembly(typeof(Program).Assembly).Run(Environment.GetCommandLineArgs());
+BenchmarkSWIG_CLR();
+
+
 
 Console.Read();
 
@@ -18,14 +17,19 @@ static void BenchmarkSWIG_CLR()
 {
     //https://stackoverflow.com/questions/1433334/performance-differences-between-p-invoke-and-c-wrappers
     //实际情况也是CLR比SWIG快了20多倍
+
+
     BenchmarkPlay mark = new BenchmarkPlay();
     Stopwatch sw = Stopwatch.StartNew();
+
+
+    #region TestSimple
     for (int i = 0; i < 999999; i++)
     {
         mark.TestSimpleCLR();
     }
     sw.Stop();
-    Console.WriteLine($"CLR:{sw.ElapsedMilliseconds}ms");
+    Console.WriteLine($"Simple-CLR:{sw.ElapsedMilliseconds}ms");
 
     sw.Restart();
     for (int i = 0; i < 999999; i++)
@@ -33,7 +37,26 @@ static void BenchmarkSWIG_CLR()
         mark.TestSimpleSWIG();
     }
     sw.Stop();
-    Console.WriteLine($"SWIG:{sw.ElapsedMilliseconds}ms");
+    Console.WriteLine($"Simple-SWIG:{sw.ElapsedMilliseconds}ms");
+    #endregion
+
+    #region 复杂对象
+    sw.Restart();
+    for (int i = 0; i < 999999; i++)
+    {
+        mark.TestComplexCLR();
+    }
+    sw.Stop();
+    Console.WriteLine($"Complex-CLR:{sw.ElapsedMilliseconds}ms");
+
+    sw.Restart();
+    for (int i = 0; i < 999999; i++)
+    {
+        mark.TestComplexSWIG();
+    }
+    sw.Stop();
+    Console.WriteLine($"Complex-SWIG:{sw.ElapsedMilliseconds}ms"); 
+    #endregion
 }
 
 //测试指针的引用
