@@ -37,6 +37,12 @@
 	public System.IntPtr Ptr => getCPtr(this).Handle;
 %}
 
+
+//%typemap(newfree) SWIGTYPE {
+//delete $1;
+//}
+
+
 //%array_class(Foo,FooArray);
 
 //%template(TestVector) std::vector<int>;
@@ -46,7 +52,8 @@
 %typemap(csin,pre="System.IntPtr temp_$csinput = Bar.getCPtr($csinput).Handle; System.IntPtr back_$csinput = temp_$csinput;",post="if(temp_$csinput != back_$csinput) $csinput = new Bar(temp_$csinput,true);") Bar*& "ref temp_$csinput";
 %typemap(cstype) Bar*& "ref Bar";
 
-//
+
+
 //%apply int* INOUT {int *abc};
 
 
