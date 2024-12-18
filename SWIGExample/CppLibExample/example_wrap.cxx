@@ -598,6 +598,18 @@ SWIGEXPORT void SWIGSTDCALL CSharp_CSharpCall_Foo_ComplexForBenchmark(void * jar
 }
 
 
+SWIGEXPORT void * SWIGSTDCALL CSharp_CSharpCall_Foo_GetBar(void * jarg1) {
+  void * jresult ;
+  Foo *arg1 = (Foo *) 0 ;
+  Bar result;
+  
+  arg1 = (Foo *)jarg1; 
+  result = (arg1)->GetBar();
+  jresult = new Bar(result); 
+  return jresult;
+}
+
+
 SWIGEXPORT void * SWIGSTDCALL CSharp_CSharpCall_new_Foo() {
   void * jresult ;
   Foo *result = 0 ;

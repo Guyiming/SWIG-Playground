@@ -46,5 +46,10 @@ public:
 		barRef.a = 100;
 	}
 
+	Bar GetBar()
+	{
+		return Bar();
+	}
+
 };
 

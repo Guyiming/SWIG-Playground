@@ -37,6 +37,9 @@
 	public System.IntPtr Ptr => getCPtr(this).Handle;
 %}
 
+//%typemap(out) SWIGTYPE %{ 
+//$result = new2 $1_ltype($1); 
+//%}
 
 //%typemap(newfree) SWIGTYPE {
 //delete $1;

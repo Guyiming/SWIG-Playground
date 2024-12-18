@@ -157,6 +157,11 @@ if(temp_b != back_b) b = new Bar(temp_b,true);
     if (SwigGenModulePINVOKE.SWIGPendingException.Pending) throw SwigGenModulePINVOKE.SWIGPendingException.Retrieve();
   }
 
+  public Bar GetBar() {
+    Bar ret = new Bar(SwigGenModulePINVOKE.Foo_GetBar(swigCPtr), true);
+    return ret;
+  }
+
   public Foo() : this(SwigGenModulePINVOKE.new_Foo(), true) {
   }
 
@@ -442,6 +447,9 @@ class SwigGenModulePINVOKE {
 
   [global::System.Runtime.InteropServices.DllImport("CppLibExample", EntryPoint="CSharp_CSharpCall_Foo_ComplexForBenchmark")]
   public static extern void Foo_ComplexForBenchmark(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3, global::System.Runtime.InteropServices.HandleRef jarg4);
+
+  [global::System.Runtime.InteropServices.DllImport("CppLibExample", EntryPoint="CSharp_CSharpCall_Foo_GetBar")]
+  public static extern global::System.IntPtr Foo_GetBar(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("CppLibExample", EntryPoint="CSharp_CSharpCall_new_Foo")]
   public static extern global::System.IntPtr new_Foo();
