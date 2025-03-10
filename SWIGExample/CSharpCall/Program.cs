@@ -7,10 +7,25 @@ using System.Diagnostics;
 
 BenchmarkSWIG_CLR();
 
+//VerySimple();
 
 
 Console.Read();
 
+
+static void VerySimple()
+{
+    Bar bar = new Bar();
+    bar.a = 11;
+    bar.stringArray = ["a", "b"];
+    bar.stringArrayLength = 2;
+    Foo foo = new Foo();
+
+    foo.WriteStringArray(["a", "b"], 2);
+    foo.SetBar(bar);
+
+
+}
 
 //SWIG与CLR性能对比
 static void BenchmarkSWIG_CLR()
@@ -55,7 +70,7 @@ static void BenchmarkSWIG_CLR()
         mark.TestComplexSWIG();
     }
     sw.Stop();
-    Console.WriteLine($"Complex-SWIG:{sw.ElapsedMilliseconds}ms"); 
+    Console.WriteLine($"Complex-SWIG:{sw.ElapsedMilliseconds}ms");
     #endregion
 }
 

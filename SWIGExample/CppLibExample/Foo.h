@@ -2,8 +2,6 @@
 #include "Bar.h"
 class Foo
 {
-private:
-
 public:
 	void SetValue(Bar bObj, Bar* barPtr, Bar* barPtrMalloc, Bar& barRef, Bar& barRefMalloc)
 	{
@@ -51,5 +49,28 @@ public:
 		return Bar();
 	}
 
+	void WriteStringArray(char** arr,int length)
+	{
+		PrintStringArray(arr, length);
+	}
+
+	void SetBar(Bar bar)
+	{
+		bar.a = 100;
+		PrintStringArray(bar.stringArray, bar.stringArrayLength);
+
+		bar.stringArray = new char* [3];
+		bar.stringArray[0] = _strdup("Hello");
+		bar.stringArray[1] = _strdup("World");
+		bar.stringArray[2] = nullptr;
+	}
+private:
+	void PrintStringArray(char** arr, int length)
+	{
+		for (int i = 0; i<length; i++)
+		{
+			printf("%s\n", arr[i]);
+		}
+	}
 };
 
