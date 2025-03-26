@@ -8,6 +8,8 @@ using System.Diagnostics;
 BenchmarkSWIG_CLR();
 
 
+Foo foo = new Foo();
+
 
 Console.Read();
 

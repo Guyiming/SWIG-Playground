@@ -1,10 +1,17 @@
 #pragma once
 #include "Bar.h"
+typedef void (*KcpOutputFunc)(const char* buf, int len);
+
 class Foo
 {
 private:
 
 public:
+	void ikcp_setoutput(char *kcp, KcpOutputFunc func)
+	{
+
+	}
+
 	void SetValue(Bar bObj, Bar* barPtr, Bar* barPtrMalloc, Bar& barRef, Bar& barRefMalloc)
 	{
 		//因为是值传递，所以修改a的值并【不会】影响输入参数
