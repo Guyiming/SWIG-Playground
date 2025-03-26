@@ -1,13 +1,18 @@
 #pragma once
 #include "Bar.h"
-typedef void (*KcpOutputFunc)(const char* buf, int len);
+typedef void (*TestDelegate)(const char* buf, int len);
 
 class Foo
 {
 public:
-	void ikcp_setoutput(char *kcp, KcpOutputFunc func)
+	/// <summary>
+	/// 测试委托，注意c#层要将传入的委托存下来，避免被GC
+	/// </summary>
+	/// <param name="kcp"></param>
+	/// <param name="TestDelegate"></param>
+	void SetDelegate(char *kcp, void (*TestDelegate)(const char* buf, int len))
 	{
-
+		//...
 	}
 
 	void SetValue(Bar bObj, Bar* barPtr, Bar* barPtrMalloc, Bar& barRef, Bar& barRefMalloc)

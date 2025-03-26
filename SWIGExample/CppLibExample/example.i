@@ -97,15 +97,10 @@ CSHARP_ARRAYS(char *, string)
 //%array_class(PointAsC,PointAsCArray);
 
 %typemap(csin) void(*)(const char*,int) "System.Runtime.InteropServices.Marshal.GetFunctionPointerForDelegate($csinput)";
-
 %typemap(imtype,out="IntPtr") void(*)(const char*,int) "System.IntPtr";
-
-// 将void(*)()映射为C#名为OperationFunction的委托
-%typemap(cstype) void(*)(const char*,int) "OperationFunction";
-
-//定义一个名为OperationFunction的委托
+%typemap(cstype) void(*)(const char*,int) "TestDelegate";
 %pragma(csharp) moduleimports=%{
-public delegate void KcpOutputFunc();
+public delegate void TestDelegate(string a,int b);
 %}
 
 

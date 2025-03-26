@@ -1,0 +1,15 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/CLR/">
+    <Project Path="CppInteropCLR/CppInteropCLR.vcxproj" Id="13d76813-a26d-4290-b437-3df1aaa5b9a5" />
+    <Project Path="CppSharpConsole/CppSharpGenerater.csproj" />
+  </Folder>
+  <Folder Name="/PInvoke/">
+    <Project Path="CSharpCall/CSharpCall.csproj" />
+  </Folder>
+  <Project Path="CppLibExample/CppLibExample.vcxproj" Id="c5772e26-bc36-458e-b609-c288cadb2a3a" />
+</Solution>

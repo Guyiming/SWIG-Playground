@@ -147,6 +147,9 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
     </Link>
+    <PreBuildEvent>
+      <Command>$(ProjectDir)../../swig_4.1.1_slim/swig.exe -c++ -outdir ../CSharpCall/GenerateCode -outfile MergedCode.cs -namespace CSharpCall -dllimport CppLibExample -csharp example.i</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Bar.h" />
