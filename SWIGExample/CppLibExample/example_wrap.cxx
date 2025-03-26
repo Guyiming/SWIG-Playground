@@ -494,6 +494,54 @@ SWIGEXPORT int SWIGSTDCALL CSharp_CSharpCall_Bar_a_get(void * jarg1) {
 }
 
 
+SWIGEXPORT void SWIGSTDCALL CSharp_CSharpCall_Bar_stringArray_set(void * jarg1, char ** jarg2) {
+  Bar *arg1 = (Bar *) 0 ;
+  char **arg2 = (char **) 0 ;
+  
+  arg1 = (Bar *)jarg1; 
+  arg2 = jarg2;
+  if (arg1) (arg1)->stringArray = arg2;
+  
+  
+}
+
+
+SWIGEXPORT char ** SWIGSTDCALL CSharp_CSharpCall_Bar_stringArray_get(void * jarg1) {
+  char ** jresult ;
+  Bar *arg1 = (Bar *) 0 ;
+  char **result = 0 ;
+  
+  arg1 = (Bar *)jarg1; 
+  result = (char **) ((arg1)->stringArray);
+  {
+    jresult=result;
+  }
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_CSharpCall_Bar_stringArrayLength_set(void * jarg1, int jarg2) {
+  Bar *arg1 = (Bar *) 0 ;
+  int arg2 ;
+  
+  arg1 = (Bar *)jarg1; 
+  arg2 = (int)jarg2; 
+  if (arg1) (arg1)->stringArrayLength = arg2;
+}
+
+
+SWIGEXPORT int SWIGSTDCALL CSharp_CSharpCall_Bar_stringArrayLength_get(void * jarg1) {
+  int jresult ;
+  Bar *arg1 = (Bar *) 0 ;
+  int result;
+  
+  arg1 = (Bar *)jarg1; 
+  result = (int) ((arg1)->stringArrayLength);
+  jresult = result; 
+  return jresult;
+}
+
+
 SWIGEXPORT void * SWIGSTDCALL CSharp_CSharpCall_new_Bar() {
   void * jresult ;
   Bar *result = 0 ;
@@ -595,6 +643,48 @@ SWIGEXPORT void SWIGSTDCALL CSharp_CSharpCall_Foo_ComplexForBenchmark(void * jar
     return ;
   } 
   (arg1)->ComplexForBenchmark(arg2,arg3,*arg4);
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_CSharpCall_Foo_GetBar(void * jarg1) {
+  void * jresult ;
+  Foo *arg1 = (Foo *) 0 ;
+  Bar result;
+  
+  arg1 = (Foo *)jarg1; 
+  result = (arg1)->GetBar();
+  jresult = new Bar(result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_CSharpCall_Foo_WriteStringArray(void * jarg1, char ** jarg2, int jarg3) {
+  Foo *arg1 = (Foo *) 0 ;
+  char **arg2 = (char **) 0 ;
+  int arg3 ;
+  
+  arg1 = (Foo *)jarg1; 
+  arg2 = jarg2;
+  arg3 = (int)jarg3; 
+  (arg1)->WriteStringArray(arg2,arg3);
+  
+  
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_CSharpCall_Foo_SetBar(void * jarg1, void * jarg2) {
+  Foo *arg1 = (Foo *) 0 ;
+  Bar arg2 ;
+  Bar *argp2 ;
+  
+  arg1 = (Foo *)jarg1; 
+  argp2 = (Bar *)jarg2; 
+  if (!argp2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null Bar", 0);
+    return ;
+  }
+  arg2 = *argp2; 
+  (arg1)->SetBar(arg2);
 }
 
 

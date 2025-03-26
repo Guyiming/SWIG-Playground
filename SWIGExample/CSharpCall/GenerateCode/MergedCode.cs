@@ -72,6 +72,39 @@ public class Bar : global::System.IDisposable {
     } 
   }
 
+  public string[] stringArray {
+    set {
+      SwigGenModulePINVOKE.Bar_stringArray_set(swigCPtr, value);
+    } 
+    get{
+	    IntPtr ptr = SwigGenModulePINVOKE.Bar_stringArray_get(swigCPtr);
+        List<string> strings = new List<string>();
+        int offset = 0;
+        while (true) 
+        {
+            ptr = System.Runtime.InteropServices.Marshal.ReadIntPtr(ptr, offset);
+            if (ptr == IntPtr.Zero)
+            {
+                break; 
+            }
+            strings.Add(System.Runtime.InteropServices.Marshal.PtrToStringAnsi(ptr));
+            offset += IntPtr.Size;
+        }
+        return strings.ToArray();
+    }
+
+  }
+
+  public int stringArrayLength {
+    set {
+      SwigGenModulePINVOKE.Bar_stringArrayLength_set(swigCPtr, value);
+    } 
+    get {
+      int ret = SwigGenModulePINVOKE.Bar_stringArrayLength_get(swigCPtr);
+      return ret;
+    } 
+  }
+
   public Bar() : this(SwigGenModulePINVOKE.new_Bar(), true) {
   }
 
@@ -154,6 +187,20 @@ if(temp_b != back_b) b = new Bar(temp_b,true);
 
   public void ComplexForBenchmark(Bar bar1, Bar barPtr, Bar barRef) {
     SwigGenModulePINVOKE.Foo_ComplexForBenchmark(swigCPtr, Bar.getCPtr(bar1), Bar.getCPtr(barPtr), Bar.getCPtr(barRef));
+    if (SwigGenModulePINVOKE.SWIGPendingException.Pending) throw SwigGenModulePINVOKE.SWIGPendingException.Retrieve();
+  }
+
+  public Bar GetBar() {
+    Bar ret = new Bar(SwigGenModulePINVOKE.Foo_GetBar(swigCPtr), true);
+    return ret;
+  }
+
+  public void WriteStringArray(string[] arr, int length) {
+    SwigGenModulePINVOKE.Foo_WriteStringArray(swigCPtr, arr, length);
+  }
+
+  public void SetBar(Bar bar) {
+    SwigGenModulePINVOKE.Foo_SetBar(swigCPtr, Bar.getCPtr(bar));
     if (SwigGenModulePINVOKE.SWIGPendingException.Pending) throw SwigGenModulePINVOKE.SWIGPendingException.Retrieve();
   }
 
@@ -425,6 +472,18 @@ class SwigGenModulePINVOKE {
   [global::System.Runtime.InteropServices.DllImport("CppLibExample", EntryPoint="CSharp_CSharpCall_Bar_a_get")]
   public static extern int Bar_a_get(global::System.Runtime.InteropServices.HandleRef jarg1);
 
+  [global::System.Runtime.InteropServices.DllImport("CppLibExample", EntryPoint="CSharp_CSharpCall_Bar_stringArray_set")]
+  public static extern void Bar_stringArray_set(global::System.Runtime.InteropServices.HandleRef jarg1, [System.Runtime.InteropServices.In,System.Runtime.InteropServices.Out, System.Runtime.InteropServices.MarshalAs(System.Runtime.InteropServices.UnmanagedType.LPArray, SizeParamIndex=0, ArraySubType=System.Runtime.InteropServices.UnmanagedType.LPStr)]string[] jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("CppLibExample", EntryPoint="CSharp_CSharpCall_Bar_stringArray_get")]
+  public static extern IntPtr Bar_stringArray_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("CppLibExample", EntryPoint="CSharp_CSharpCall_Bar_stringArrayLength_set")]
+  public static extern void Bar_stringArrayLength_set(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2);
+
+  [global::System.Runtime.InteropServices.DllImport("CppLibExample", EntryPoint="CSharp_CSharpCall_Bar_stringArrayLength_get")]
+  public static extern int Bar_stringArrayLength_get(global::System.Runtime.InteropServices.HandleRef jarg1);
+
   [global::System.Runtime.InteropServices.DllImport("CppLibExample", EntryPoint="CSharp_CSharpCall_new_Bar")]
   public static extern global::System.IntPtr new_Bar();
 
@@ -443,6 +502,15 @@ class SwigGenModulePINVOKE {
   [global::System.Runtime.InteropServices.DllImport("CppLibExample", EntryPoint="CSharp_CSharpCall_Foo_ComplexForBenchmark")]
   public static extern void Foo_ComplexForBenchmark(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3, global::System.Runtime.InteropServices.HandleRef jarg4);
 
+  [global::System.Runtime.InteropServices.DllImport("CppLibExample", EntryPoint="CSharp_CSharpCall_Foo_GetBar")]
+  public static extern global::System.IntPtr Foo_GetBar(global::System.Runtime.InteropServices.HandleRef jarg1);
+
+  [global::System.Runtime.InteropServices.DllImport("CppLibExample", EntryPoint="CSharp_CSharpCall_Foo_WriteStringArray")]
+  public static extern void Foo_WriteStringArray(global::System.Runtime.InteropServices.HandleRef jarg1, [System.Runtime.InteropServices.In,System.Runtime.InteropServices.Out, System.Runtime.InteropServices.MarshalAs(System.Runtime.InteropServices.UnmanagedType.LPArray, SizeParamIndex=0, ArraySubType=System.Runtime.InteropServices.UnmanagedType.LPStr)]string[] jarg2, int jarg3);
+
+  [global::System.Runtime.InteropServices.DllImport("CppLibExample", EntryPoint="CSharp_CSharpCall_Foo_SetBar")]
+  public static extern void Foo_SetBar(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
+
   [global::System.Runtime.InteropServices.DllImport("CppLibExample", EntryPoint="CSharp_CSharpCall_new_Foo")]
   public static extern global::System.IntPtr new_Foo();
 
@@ -454,6 +522,29 @@ class SwigGenModulePINVOKE {
 namespace CSharpCall {
 
 public class SwigGenModule {
+}
+
+}
+namespace CSharpCall {
+
+public class SWIGTYPE_p_p_char {
+  private global::System.Runtime.InteropServices.HandleRef swigCPtr;
+
+  internal SWIGTYPE_p_p_char(global::System.IntPtr cPtr, bool futureUse) {
+    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
+  }
+
+  protected SWIGTYPE_p_p_char() {
+    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
+  }
+
+  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(SWIGTYPE_p_p_char obj) {
+    return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
+  }
+
+  internal static global::System.Runtime.InteropServices.HandleRef swigRelease(SWIGTYPE_p_p_char obj) {
+    return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
+  }
 }
 
 }

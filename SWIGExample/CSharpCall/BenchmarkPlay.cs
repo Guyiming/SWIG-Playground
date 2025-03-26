@@ -1,49 +1,48 @@
-﻿using BenchmarkDotNet.Attributes;
-using Sample;
-
-namespace CSharpCall
+﻿namespace CSharpCall
 {
     public class BenchmarkPlay
     {
-        Sample.Foo _fooCLR = new ();
+        Sample.Foo _fooCLR = new();
         Foo _foo = new Foo();
         public BenchmarkPlay()
         {
 
         }
 
-
-
-        [Benchmark]
         public void TestSimpleCLR()
         {
+            int result=0;
             for (int i = 0; i < 50; i++)
             {
-                _fooCLR.SimpleForBenchmark(i, i + 1);
+                result = _fooCLR.SimpleForBenchmark(i, i + 1);
             }
         }
 
-        [Benchmark]
         public void TestSimpleSWIG()
+        {
+            int result=0;
+            for (int i = 0; i < 50; i++)
+            {
+                result = _foo.SimpleForBenchmark(i, i + 1);
+            }
+        }
+
+
+        public void TestComplexCLR()
+        {
+            for(int i=0;i< 50; i++)
+            {
+                _fooCLR.ComplexForBenchmark(new Sample.Bar(), new Sample.Bar(), new Sample.Bar());
+            }
+            
+        }
+
+        public void TestComplexSWIG()
         {
             for (int i = 0; i < 50; i++)
             {
-                _foo.SimpleForBenchmark(i, i + 1);
+                _foo.ComplexForBenchmark(new Bar(), new Bar(), new Bar());
             }
         }
-
-
-
-        //[Benchmark]
-        //public void TestComplexCLR()
-        //{
-        //    _fooCLR.ComplexForBenchmark(new BarCLR(), new BarCLR(), new BarCLR());
-        //}
-
-        //[Benchmark]
-        //public void TestComplexSWIG()
-        //{
-        //    _foo.ComplexForBenchmark(new Bar(), new Bar(), new Bar());
-        //}
     }
 }

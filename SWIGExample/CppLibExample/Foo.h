@@ -4,8 +4,6 @@ typedef void (*KcpOutputFunc)(const char* buf, int len);
 
 class Foo
 {
-private:
-
 public:
 	void ikcp_setoutput(char *kcp, KcpOutputFunc func)
 	{
@@ -53,5 +51,33 @@ public:
 		barRef.a = 100;
 	}
 
+	Bar GetBar()
+	{
+		return Bar();
+	}
+
+	void WriteStringArray(char** arr,int length)
+	{
+		PrintStringArray(arr, length);
+	}
+
+	void SetBar(Bar bar)
+	{
+		bar.a = 100;
+		PrintStringArray(bar.stringArray, bar.stringArrayLength);
+
+		bar.stringArray = new char* [3];
+		bar.stringArray[0] = _strdup("Hello");
+		bar.stringArray[1] = _strdup("World");
+		bar.stringArray[2] = nullptr;
+	}
+private:
+	void PrintStringArray(char** arr, int length)
+	{
+		for (int i = 0; i<length; i++)
+		{
+			printf("%s\n", arr[i]);
+		}
+	}
 };
 
