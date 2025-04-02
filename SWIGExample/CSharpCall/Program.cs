@@ -5,12 +5,18 @@ using System.Diagnostics;
 //PlayPointerOrReference();
 //PlayPointerAndRef();
 
-BenchmarkSWIG_CLR();
+//BenchmarkSWIG_CLR();
 
 //VerySimple();
 
 Foo foo = new Foo();
-
+string s = "abc";
+TestDelegate action = new TestDelegate((str, a) =>
+{
+    Console.WriteLine(str + a);
+});
+foo.SetDelegate(ref s, action);
+Console.WriteLine(s);
 
 Console.Read();
 

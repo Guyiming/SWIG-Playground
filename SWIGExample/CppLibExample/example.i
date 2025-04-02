@@ -8,7 +8,7 @@
 #include "Foo.h"
 %}
 
-//添加基础库支持
+
 %include <windows.i>
 %include <stdint.i>
 %include <std_string.i>
@@ -29,11 +29,8 @@
 %include "carrays.i"
 %include <arrays_csharp.i>
 
-//添加额外代码到C#包装类
+
 %typemap(cscode) SWIGTYPE %{
-	/// <summary>
-	/// 获取当前对象的指针
-	/// </summary>
 	public System.IntPtr Ptr => getCPtr(this).Handle;
 %}
 
@@ -50,11 +47,24 @@
 
 //%template(TestVector) std::vector<int>;
 
+//map T*& to ref T
 %typemap(ctype) Bar*& "void**";
 %typemap(imtype,out="IntPtr") Bar*& "ref System.IntPtr";
 %typemap(csin,pre="System.IntPtr temp_$csinput = Bar.getCPtr($csinput).Handle; System.IntPtr back_$csinput = temp_$csinput;",post="if(temp_$csinput != back_$csinput) $csinput = new Bar(temp_$csinput,true);") Bar*& "ref temp_$csinput";
 %typemap(cstype) Bar*& "ref Bar";
 
+
+
+%typemap(ctype) char**& kcp "char**";
+%typemap(imtype) char**& kcp "ref string";
+%typemap(csin) char**& kcp "ref $csinput";
+%typemap(cstype) char**& kcp "ref string";
+
+//%typemap(argout) char*& {
+//        jarg2=*$1;
+//}
+
+%apply char* INOUT {char *};
 
 //map char** to string[]
 CSHARP_ARRAYS(char *, string)
@@ -89,10 +99,8 @@ CSHARP_ARRAYS(char *, string)
 //%apply int* INOUT {int *abc};
 
 
-//%typemap(cstype) int *abc "ref int";
-//%typemap(csin) int *abc "ref $csinput";
-//%typemap(imtype) int *abc "ref int";
-//%typemap(ctype) int *abc "int*";
+
+
 
 //%array_class(PointAsC,PointAsCArray);
 

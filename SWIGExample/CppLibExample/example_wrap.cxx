@@ -560,15 +560,19 @@ SWIGEXPORT void SWIGSTDCALL CSharp_CSharpCall_delete_Bar(void * jarg1) {
 }
 
 
-SWIGEXPORT void SWIGSTDCALL CSharp_CSharpCall_Foo_SetDelegate(void * jarg1, char * jarg2, void * jarg3) {
+SWIGEXPORT void SWIGSTDCALL CSharp_CSharpCall_Foo_SetDelegate(void * jarg1, char** jarg2, void * jarg3) {
   Foo *arg1 = (Foo *) 0 ;
-  char *arg2 = (char *) 0 ;
-  void (*arg3)(char const *,int) = (void (*)(char const *,int)) 0 ;
+  char ***arg2 = 0 ;
+  TestDelegate arg3 = (TestDelegate) 0 ;
   
   arg1 = (Foo *)jarg1; 
-  arg2 = (char *)jarg2; 
-  arg3 = (void (*)(char const *,int))jarg3; 
-  (arg1)->SetDelegate(arg2,arg3);
+  arg2 = (char ***)jarg2;
+  if (!arg2) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "char **& is null", 0);
+    return ;
+  } 
+  arg3 = (TestDelegate)jarg3; 
+  (arg1)->SetDelegate(*arg2,arg3);
 }
 
 

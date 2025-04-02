@@ -10,8 +10,15 @@ public:
 	/// </summary>
 	/// <param name="kcp"></param>
 	/// <param name="TestDelegate"></param>
-	void SetDelegate(char *kcp, void (*TestDelegate)(const char* buf, int len))
+	void SetDelegate(char**& kcp, TestDelegate action)
 	{
+		char* buf= new char[10];
+		strcpy(buf, "buffer");
+		action(buf,6);
+		char* temp = new char[10];
+		strcpy(temp, "123");
+		kcp = &temp;
+
 		//...
 	}
 

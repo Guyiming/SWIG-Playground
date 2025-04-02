@@ -57,9 +57,6 @@ public class Bar : global::System.IDisposable {
     }
   }
 
-	/// <summary>
-	/// 获取当前对象的指针
-	/// </summary>
 	public System.IntPtr Ptr => getCPtr(this).Handle;
 
   public int a {
@@ -160,13 +157,11 @@ public class Foo : global::System.IDisposable {
     }
   }
 
-	/// <summary>
-	/// 获取当前对象的指针
-	/// </summary>
 	public System.IntPtr Ptr => getCPtr(this).Handle;
 
-  public void SetDelegate(string kcp, TestDelegate TestDelegate) {
-    SwigGenModulePINVOKE.Foo_SetDelegate(swigCPtr, kcp, System.Runtime.InteropServices.Marshal.GetFunctionPointerForDelegate(TestDelegate));
+  public void SetDelegate(ref string kcp, TestDelegate action) {
+    SwigGenModulePINVOKE.Foo_SetDelegate(swigCPtr, ref kcp, System.Runtime.InteropServices.Marshal.GetFunctionPointerForDelegate(action));
+    if (SwigGenModulePINVOKE.SWIGPendingException.Pending) throw SwigGenModulePINVOKE.SWIGPendingException.Retrieve();
   }
 
   public void SetValue(Bar bObj, Bar barPtr, Bar barPtrMalloc, Bar barRef, Bar barRefMalloc) {
@@ -495,7 +490,7 @@ class SwigGenModulePINVOKE {
   public static extern void delete_Bar(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("CppLibExample", EntryPoint="CSharp_CSharpCall_Foo_SetDelegate")]
-  public static extern void Foo_SetDelegate(global::System.Runtime.InteropServices.HandleRef jarg1, string jarg2, System.IntPtr jarg3);
+  public static extern void Foo_SetDelegate(global::System.Runtime.InteropServices.HandleRef jarg1, ref string jarg2, System.IntPtr jarg3);
 
   [global::System.Runtime.InteropServices.DllImport("CppLibExample", EntryPoint="CSharp_CSharpCall_Foo_SetValue")]
   public static extern void Foo_SetValue(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3, global::System.Runtime.InteropServices.HandleRef jarg4, global::System.Runtime.InteropServices.HandleRef jarg5, global::System.Runtime.InteropServices.HandleRef jarg6);
