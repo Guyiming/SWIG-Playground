@@ -160,8 +160,7 @@ public class Foo : global::System.IDisposable {
 	public System.IntPtr Ptr => getCPtr(this).Handle;
 
   public void SetDelegate(ref string kcp, TestDelegate action) {
-    SwigGenModulePINVOKE.Foo_SetDelegate(swigCPtr, ref kcp, System.Runtime.InteropServices.Marshal.GetFunctionPointerForDelegate(action));
-    if (SwigGenModulePINVOKE.SWIGPendingException.Pending) throw SwigGenModulePINVOKE.SWIGPendingException.Retrieve();
+    SwigGenModulePINVOKE.Foo_SetDelegate(swigCPtr, kcp, System.Runtime.InteropServices.Marshal.GetFunctionPointerForDelegate(action));
   }
 
   public void SetValue(Bar bObj, Bar barPtr, Bar barPtrMalloc, Bar barRef, Bar barRefMalloc) {

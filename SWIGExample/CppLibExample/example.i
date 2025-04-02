@@ -55,10 +55,11 @@
 
 
 
-%typemap(ctype) char**& kcp "char**";
-%typemap(imtype) char**& kcp "ref string";
+%typemap(ctype) char*& kcp "char*&"
+%typemap(imtype) char*& kcp "ref string"
 %typemap(csin) char**& kcp "ref $csinput";
-%typemap(cstype) char**& kcp "ref string";
+%typemap(cstype) char*& kcp "ref string"
+
 
 //%typemap(argout) char*& {
 //        jarg2=*$1;
