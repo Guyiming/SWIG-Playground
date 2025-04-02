@@ -159,8 +159,9 @@ public class Foo : global::System.IDisposable {
 
 	public System.IntPtr Ptr => getCPtr(this).Handle;
 
-  public void SetDelegate(ref string kcp, TestDelegate action) {
-    SwigGenModulePINVOKE.Foo_SetDelegate(swigCPtr, kcp, System.Runtime.InteropServices.Marshal.GetFunctionPointerForDelegate(action));
+  public void SetDelegate(ref string kcp, SWIGTYPE_p_std__string str2, TestDelegate action) {
+    SwigGenModulePINVOKE.Foo_SetDelegate(swigCPtr, ref kcp, SWIGTYPE_p_std__string.getCPtr(str2), System.Runtime.InteropServices.Marshal.GetFunctionPointerForDelegate(action));
+    if (SwigGenModulePINVOKE.SWIGPendingException.Pending) throw SwigGenModulePINVOKE.SWIGPendingException.Retrieve();
   }
 
   public void SetValue(Bar bObj, Bar barPtr, Bar barPtrMalloc, Bar barRef, Bar barRefMalloc) {
@@ -489,7 +490,7 @@ class SwigGenModulePINVOKE {
   public static extern void delete_Bar(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("CppLibExample", EntryPoint="CSharp_CSharpCall_Foo_SetDelegate")]
-  public static extern void Foo_SetDelegate(global::System.Runtime.InteropServices.HandleRef jarg1, ref string jarg2, System.IntPtr jarg3);
+  public static extern void Foo_SetDelegate(global::System.Runtime.InteropServices.HandleRef jarg1, ref string jarg2, global::System.Runtime.InteropServices.HandleRef jarg3, System.IntPtr jarg4);
 
   [global::System.Runtime.InteropServices.DllImport("CppLibExample", EntryPoint="CSharp_CSharpCall_Foo_SetValue")]
   public static extern void Foo_SetValue(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2, global::System.Runtime.InteropServices.HandleRef jarg3, global::System.Runtime.InteropServices.HandleRef jarg4, global::System.Runtime.InteropServices.HandleRef jarg5, global::System.Runtime.InteropServices.HandleRef jarg6);
@@ -546,6 +547,29 @@ public class SWIGTYPE_p_p_char {
   }
 
   internal static global::System.Runtime.InteropServices.HandleRef swigRelease(SWIGTYPE_p_p_char obj) {
+    return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
+  }
+}
+
+}
+namespace CSharpCall {
+
+public class SWIGTYPE_p_std__string {
+  private global::System.Runtime.InteropServices.HandleRef swigCPtr;
+
+  internal SWIGTYPE_p_std__string(global::System.IntPtr cPtr, bool futureUse) {
+    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(this, cPtr);
+  }
+
+  protected SWIGTYPE_p_std__string() {
+    swigCPtr = new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero);
+  }
+
+  internal static global::System.Runtime.InteropServices.HandleRef getCPtr(SWIGTYPE_p_std__string obj) {
+    return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
+  }
+
+  internal static global::System.Runtime.InteropServices.HandleRef swigRelease(SWIGTYPE_p_std__string obj) {
     return (obj == null) ? new global::System.Runtime.InteropServices.HandleRef(null, global::System.IntPtr.Zero) : obj.swigCPtr;
   }
 }

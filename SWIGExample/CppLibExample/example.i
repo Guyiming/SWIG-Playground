@@ -4,6 +4,7 @@
 %module SwigGenModule
 
 %{
+#include <string>
 #include "Bar.h"
 #include "Foo.h"
 %}
@@ -20,7 +21,6 @@
 %include <std_map.i>
 %include <std_pair.i>
 %include <std_set.i>
-%include <std_string.i>
 %include <std_vector.i>
 %include <std_wstring.i>
 %include <std_shared_ptr.i>
@@ -57,7 +57,7 @@
 
 %typemap(ctype) char*& kcp "char*&"
 %typemap(imtype) char*& kcp "ref string"
-%typemap(csin) char**& kcp "ref $csinput";
+%typemap(csin) char*& kcp "ref $csinput";
 %typemap(cstype) char*& kcp "ref string"
 
 

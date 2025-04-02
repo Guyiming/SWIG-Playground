@@ -10,13 +10,14 @@ using System.Diagnostics;
 //VerySimple();
 
 Foo foo = new Foo();
-string s = "abc";
+string s = "111";
+string s2 = "111";
 TestDelegate action = new TestDelegate((str, a) =>
 {
     Console.WriteLine(str + a);
 });
-foo.SetDelegate(ref s, action);
-Console.WriteLine(s);
+foo.SetDelegate(ref s,s2, action);
+Console.WriteLine(s+s2);
 
 Console.Read();
 

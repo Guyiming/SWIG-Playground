@@ -1,5 +1,6 @@
 #pragma once
 #include "Bar.h"
+#include <string>
 typedef void (*TestDelegate)(const char* buf, int len);
 
 class Foo
@@ -10,15 +11,16 @@ public:
 	/// </summary>
 	/// <param name="kcp"></param>
 	/// <param name="TestDelegate"></param>
-	void SetDelegate(char*& kcp, TestDelegate action)
+	void SetDelegate(char*& kcp, std::string& str2, TestDelegate action)
 	{
 		char* buf= new char[10];
 		strcpy(buf, "buffer");
 		action(buf,6);
 		char* temp = new char[10];
-		strcpy(temp, "123");
+		strcpy(temp, "222");
 		kcp = temp;
 
+		str2 ="222";
 		//...
 	}
 
